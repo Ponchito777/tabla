@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Futbolistas</title>
+    <style>
+        /* Estilo del cuerpo de la página */
+        body {
+            font-family: 'Open Sans', sans-serif; /* Fuente de texto */
+            background-color: hsl(0, 52%, 45%); /* Color de fondo */
+            margin: 20px; /* Espacio exterior */
+        }
+        /* Contenedor principal */
+        .container {
+            max-width: 800px; /* Ancho máximo */
+            margin: 0 auto; /* Centrar horizontalmente */
+            padding: 20px; /* Espacio interior */
+            background-color: #15a89c; /* Color de fondo */
+            box-shadow: 0 0 10px #0ee9d71a; /* Sombra */
+            border-radius: 8px; /* Bordes redondeados */
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 20px;
+        }
+        /* Estilo del título principal */
+        h1 {
+            text-align: center; /* Centrar el texto */
+            color: #0602ec; /* Color del texto */
+        }
+        /* Grupo de formulario */
+        .form-group {
+            margin-bottom: 15px; /* Espacio inferior */
+        }
+        /* Estilo para las etiquetas */
+        label {
+            display: block; /* Mostrar como bloque */
+            font-weight: bold; /* Negrita */
+        }
+        /* Estilo de cajas de texto y combo */
+        input[type="text"], select {
+            width: 100%; /* Ancho completo */
+            padding: 8px; /* Espacio interior */
+            margin-top: 5px; /* Espacio superior */
+            border: 1px solid #811616; /* Borde */
+            border-radius: 4px; /* Bordes redondeados */
+        }
+        /* Estilo de la tabla */
+        table {
+            width: 100%; /* Ancho completo */
+            border-collapse: collapse; /* Colapsar bordes */
+            margin-top: 20px; /* Espacio superior */
+        }
+        /* Bordes de la tabla */
+        table, th, td {
+            border: 1px solid #fa0e0e; /* Borde de las celdas */
+        }
+        /* Espacio interior de celdas */
+        th, td {
+            padding: 10px; /* Espacio interior */
+            text-align: center; /* Centrar el texto */
+        }
+        /* Estilo de los encabezados de tabla */
+        th {
+            background-color: #f2f2f2; /* Color de fondo */
+        }
+        /* Estilo del botón */
+        .btn {
+            display: inline-block; /* Mostrar como bloque en línea */
+            padding: 10px 20px; /* Espacio interior */
+            font-size: 16px; /* Tamaño de fuente */
+            text-align: center; /* Centrar el texto */
+            color: #1d0d0d; /* Color del texto */
+            background-color: #14db1e; /* Color de fondo */
+            border: none; /* Sin borde */
+            border-radius: 4px; /* Bordes redondeados */
+            cursor: pointer; /* Cambiar cursor al pasar */
+            margin-top: 10px; /* Espacio superior */
+        }
+        /* Cambio de color al pasar sobre el botón */
+        .btn:hover {
+            background-color: #b30000; /* Color al pasar */
+        }
+        /* Animación para la tabla */
+        .table-container {
+            transition: all 0.3s ease-in-out;
+        }
+        .table-container:hover {
+            box-shadow: 0 0 10px rgba(243, 15, 15, 0.774);
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="#dataTable">Tabla de Datos</a></li>
+            <li><a href="#formulario">Registro de Futbolistas</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <h1>Registro de Futbolistas</h1>
+        <div class="table-container">
+            <h2>Tabla de Datos</h2>
+            <!-- Tabla donde se mostrarán los datos ingresados -->
+            <table id="dataTable">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Edad</th>
+                        <th>Pa ís</th>
+                        <th>Sueldo Anual</th>
+                        <th>Sueldo Mensual </th>
+                        <th>Club</th>
+                        <th>Continente</th>
+                    </tr>
+                </thead>
+                <tbody id="tbody">
+                    <!-- Aquí se agregarán los nuevos registros -->
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th colspan="3">Totales</th>
+                        <th id="totalAnual">0</th>
+                        <th id="totalMensual">0</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+        <div class="form-container">
+            <!-- Formulario para registrar nuevos futbolistas -->
+            <h2>Registro de Futbolistas</h2>
+            <form>
+                <!-- Campos del formulario -->
+                <div class="form-group">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" id="nombre" name="nombre">
+                </div>
+                <div class="form-group">
+                    <label for="edad">Edad:</label>
+                    <input type="number" id="edad" name="edad">
+                </div>
+                <div class="form-group">
+                    <label for="pais">País:</label>
+                    <select id="pais" name="pais">
+                        <option value="">Seleccione un país</option>
+                        <option value="México">México</option>
+                        <option value="Argentina">Argentina</option>
+                        <option value="Inglaterra">Inglaterra</option>
+                        <option value="Francia">Francia</option>
+                        <option value="Alemania">Alemania</option>
+                        <option value="Italia">Italia</option>
+                        <option value="Portugal">Portugal</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="sueldoAnual">Sueldo Anual:</label>
+                    <input type="number" id="sueldoAnual" name="sueldoAnual">
+                </div>
+                <div class="form-group">
+                    <label for="club">Club:</label>
+                    <input type="text" id="club" name="club">
+                </div>
+                <div class="form-group">
+                    <label for="linkClub">Link del Club:</label>
+                    <input type="url" id="linkClub" name="linkClub">
+                </div>
+                <div class="form-group">
+                    <label for="continente">Continente:</label>
+                    <select id="continente" name="continente">
+                        <option value="">Seleccione un continente</option>
+                        <option value="Norte América">Norte América</option>
+                        <option value="Sudamérica">Sudamérica</option>
+                        <option value="Europa">Europa</option>
+                    </select>
+                </div>
+                <button class="btn" id="registrar">Registrar</button>
+            </form>
+        </div>
+    </div>
+    <script>
+        // Función para registrar un nuevo jugador
+        document.getElementById('registrar').addEventListener('click', (e) => {
+            e.preventDefault();
+            const nombre = document.getElementById('nombre').value;
+            const edad = document.getElementById('edad').value;
+            const pais = document.getElementById('pais').value;
+            const sueldoAnual = document.getElementById('sueldoAnual').value;
+            const club = document.getElementById('club').value;
+            const linkClub = document.getElementById('linkClub').value;
+            const continente = document.getElementById('continente').value;
+            const sueldoMensual = sueldoAnual / 12;
+            const newRow = `
+                <tr>
+                    <td>${nombre}</td>
+                    <td>${edad}</td>
+                    <td>${pais}</td>
+                    <td>${sueldoAnual}</td>
+                    <td>${sueldoMensual}</td>
+                    <td><a href="${linkClub}">${club}</a></td>
+                    <td>${continente}</td>
+                </tr>
+            `;
+            document.getElementById('tbody').innerHTML += newRow;
+            // Calcular totales anual y mensual
+            let totalAnual = 0;
+            let totalMensual = 0;
+            document.querySelectorAll('#dataTable tbody tr').forEach((row) => {
+                totalAnual += parseInt(row.cells[3].textContent);
+                totalMensual += parseInt(row.cells[4].textContent);
+            });
+            document.getElementById('totalAnual').textContent = totalAnual;
+            document.getElementById('totalMensual').textContent = totalMensual;
+        });
+    </script>
+</body>
+</html>
